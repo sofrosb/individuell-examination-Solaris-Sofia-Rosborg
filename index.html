@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solaris</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Secular+One&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="header-box">
+      <h1>Solsystemet</h1>
+      <h2>Solaris</h2>
+    </section>
+    <section class="search-box">
+      <input type="text" id="search" />
+      <button id="searchBtn">Sök himlakropp</button>
+    </section>
+    <div id="error"></div>
+    <section class="solarsystem">
+      <div id="sun" class="body star"></div>
+      <section class="planets">
+        <div id="mercury" class="body planet"></div>
+        <div id="venus" class="body planet"></div>
+        <div id="earth" class="body planet"></div>
+        <div id="mars" class="body planet"></div>
+        <div id="jupiter" class="body planet"></div>
+        <div id="saturn" class="body planet"><div id="saturn-ring"></div></div>
+        <div id="uranus" class="body planet"></div>
+        <div id="neptune" class="body planet"></div>
+      </section>
+      <div id="text-box" style="display: none">Här är din planet!</div>
+    </section>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

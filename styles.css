@@ -1,0 +1,348 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  max-width: 1440px;
+  background: linear-gradient(45deg, #0c164d, #190b22);
+  font-family: "Secular One", sans-serif;
+  height: 100vh;
+}
+
+.header-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+}
+
+h1 {
+  font-size: 60px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+h2 {
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 14px;
+  text-transform: uppercase;
+  color: #ffd029;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: "Secular One", sans-serif;
+}
+
+input {
+  height: 30px;
+  border-radius: 5px;
+  width: 300px;
+  padding: 5px;
+  font-family: inherit;
+  font-weight: 100;
+  border-color: #0c164d;
+}
+
+button {
+  font-family: inherit;
+  background-color: #ffd029;
+  color: #0c164d;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#error {
+  color: firebrick;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 50px;
+}
+
+.star,
+.planet {
+  border-radius: 50%;
+}
+
+.solarsystem {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.planets {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  width: 80%;
+}
+
+.planet:hover {
+  animation: spin 10s linear infinite;
+  z-index: 1;
+  box-shadow: none;
+}
+
+/* animation som får planeterna att rotera samt skalas upp */
+@keyframes spin {
+  from {
+    transform: rotate(0deg) scale(2);
+  }
+  to {
+    transform: rotate(360deg) scale(2);
+  }
+}
+
+#sun {
+  background-color: #ffd029;
+  background: radial-gradient(
+    #ffd029 0%,
+    #ffd029 60%,
+    #bf5e34 70%,
+    #bf5e34 100%
+  );
+  width: 1278px;
+  height: 1278px;
+  overflow: hidden;
+  position: absolute;
+  left: -1200px;
+  filter: drop-shadow(15px 10px 4px #dd9b44);
+}
+
+#mercury {
+  background-color: #888888;
+  background: radial-gradient(
+    circle at 100%,
+    #888888,
+    #888888,
+    #2e323b,
+    #888888,
+    #5b5c5e,
+    #888888,
+    #888888
+  );
+  width: 14px;
+  height: 14px;
+}
+
+#venus {
+  background-color: #e7cdcd;
+  background-image: linear-gradient(45deg, #e7cdcd, #edc9ab, #e8b685, #dfe3db);
+  width: 26px;
+  height: 26px;
+}
+
+#earth {
+  background-color: #428ed4;
+  background: radial-gradient(
+    circle at 80%,
+    #428ed4,
+    #428ed4,
+    #4c8555,
+    #428ed4,
+    #428ed4,
+    #4c8555,
+    #428ed4
+  );
+  width: 28px;
+  height: 28px;
+}
+
+#mars {
+  background-color: #ef5f5f;
+  background-image: linear-gradient(#ef5f5f, #570d0d);
+  width: 14px;
+  height: 14px;
+}
+
+#jupiter {
+  background-color: #e29468;
+  background-image: linear-gradient(
+    #c79a81,
+    #523d32,
+    #e29468,
+    #dfe3db,
+    #fba04d,
+    #d88c63,
+    #c79a81,
+    #e29468,
+    #ffbf98,
+    #523d32
+  );
+  width: 188px;
+  height: 188px;
+}
+
+#saturn {
+  background-color: #c7aa72;
+  background-image: linear-gradient(
+    150deg,
+    #c79a81,
+    #c7aa72,
+    #755c2d,
+    #c79a81,
+    #c7aa72,
+    #755c2d
+  );
+  width: 144px;
+  height: 144px;
+  position: relative;
+}
+
+#saturn-ring {
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 218.23px;
+  height: 5.5px;
+  rotate: 150deg;
+  border-radius: 75%;
+  position: absolute;
+  top: 50%;
+  left: -25%;
+}
+
+#uranus {
+  background-color: #c9d4f1;
+  background-image: radial-gradient(#c9d4f1 30%, #c6f7f8, #5b5c5e);
+  width: 66px;
+  height: 66px;
+}
+
+#neptune {
+  background-color: #7a91a7;
+  background-image: linear-gradient(45deg, #1025b0, #1025b0, #7a91a7, #1025b0);
+  width: 66px;
+  height: 66px;
+}
+
+.zoom {
+  transform: scale(2);
+  transition: transform 0.5s ease-in-out scale 1s;
+  z-index: 1;
+}
+
+.zoom-star {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.grow {
+  width: 600px;
+  height: 600px;
+}
+
+#text-box {
+  font-family: "Secular One", sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(25, 11, 34, 0.8);
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1em;
+  padding: 2em;
+  transform: translate(-50%, -50%);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.info-box {
+  width: 100%;
+}
+.description-box {
+  margin-top: 20px;
+  width: 100%;
+  line-height: 30.6px;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+tr {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-family: "Secular One", sans-serif;
+  font-size: 18px;
+}
+
+/* Skapar "stjärnhimmel" i textboxen */
+#text-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 70%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 15% 20%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 17% 25%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 20% 30%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 25% 15%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 35% 40%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 40% 20%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 40% 80%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 50% 50%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 65% 60%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 70% 45%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 75% 55%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 80% 10%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 80% 70%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 85% 80%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 90% 20%, white 0.1%, transparent 0.2%),
+    radial-gradient(circle at 95% 90%, white 0.1%, transparent 0.2%),
+    rgba(25, 11, 34, 0.8);
+  z-index: -1;
+}
+
+.move-right {
+  transform: translateX(9500%);
+  opacity: 0;
+  transition: transform 3s ease-out, opacity 4s ease-out;
+}
+
+.move-left {
+  transform: translateX(-5000%);
+  opacity: 0;
+  transition: transform 3s ease-out, opacity 4s ease-out;
+}
