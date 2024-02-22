@@ -17,7 +17,7 @@ export function updatePlanetInfo(planet, allBodies) {
     "<tr><td>" +
     planet.circumference.toLocaleString("sv-SE") +
     " km</td><td>" +
-    planet.distance +
+    planet.distance.toLocaleString("sv-SE") +
     " km</td></tr>" +
     "<tr><td><h3>MAXTEMPERATUR</h3></td><td><h3>LÄGSTA TEMPERATUR</h3></td></tr>" +
     "<tr><td>" +
