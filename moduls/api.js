@@ -38,3 +38,21 @@ export function getApiKey() {
       })
   );
 }
+
+// Funktion som hämtar data från API:et
+export function fetchData(searchInputValue) {
+  return getApiKey().then((apiKey) => {
+    const baseUrl = `https://n5n3eiyjb0.execute-api.eu-north-1.amazonaws.com/bodies?${apiKey}&search=${searchInputValue}`;
+    return fetch(baseUrl, {
+      method: "GET",
+      headers: {
+        "x-zocom": apiKey,
+      },
+    })
+      .then((response) => response.json())
+      .catch((error) => {
+        // Hanterar fel här
+        throw error;
+      });
+  });
+}

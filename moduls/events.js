@@ -1,4 +1,4 @@
-import { getApiKey } from "./api.js";
+import { getApiKey, fetchData } from "./api.js";
 import { updatePlanetInfo } from "./planetInfo.js";
 import { searchBtn, searchInput, errorDiv, bodies, allBodies } from "./dom.js";
 
