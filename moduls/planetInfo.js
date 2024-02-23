@@ -3,6 +3,11 @@ import { textBox, headers } from "./dom.js";
 
 // Funktion som uppdaterar informationen om varje himlakropp i textrutan
 export function updatePlanetInfo(planet, allBodies) {
+  // Kontrollera om planet är null eller undefined
+  if (!planet) {
+    console.error("Planet object is null or undefined.");
+    return;
+  }
   // Textrutans synlighet, den är dold till en början
   textBox.style.display = "block";
   // Skapar olika strängar med all information om planeten
@@ -59,6 +64,10 @@ export function updatePlanetInfo(planet, allBodies) {
         setTimeout(() => {
           element.classList.remove("zoom");
         }, 1000);
+        // Återställer headers
+        headers.forEach((header) => {
+          header.style.opacity = "1";
+        });
       });
     }
   });
