@@ -1,5 +1,5 @@
 // Importerar textruta
-import { textBox } from "./dom.js";
+import { textBox, headers } from "./dom.js";
 
 // Funktion som uppdaterar informationen om varje himlakropp i textrutan
 export function updatePlanetInfo(planet, allBodies) {
@@ -35,6 +35,10 @@ export function updatePlanetInfo(planet, allBodies) {
     "<div class='content-box'>" + descriptionBox + infoBox + "</div>";
   // Informationen sätts som innehåll i textrutan
   textBox.innerHTML = planetName + latinName + contentBox;
+  // Gör rubrikerna i bakgrunden något transparenta
+  headers.forEach((header) => {
+    header.style.opacity = "0.5";
+  });
   document.addEventListener("click", function (event) {
     // Om klicket är utanför textrutan
     if (

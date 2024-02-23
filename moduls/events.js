@@ -1,8 +1,10 @@
 import { getApiKey } from "./api.js";
 import { updatePlanetInfo } from "./planetInfo.js";
-import { searchBtn, searchInput, errorDiv, bodies } from "./dom.js";
+import { searchBtn, searchInput, errorDiv, bodies, allBodies } from "./dom.js";
 
 let searchInputValue;
+// Skapar en global variabel för att lagra data från API:et
+let globalData;
 
 // Eventlyssnare för sökknappen
 searchBtn.addEventListener("click", search);
@@ -47,13 +49,15 @@ function search() {
         throw error;
       })
       .then((data) => {
+        console.log("Data from API: ", data);
+        // Sparar data i den globala variabeln
+        globalData = data;
         // Rensar tidigare felmeddelanden
         errorDiv.innerHTML = "";
-        const allBodies = document.querySelectorAll(".planet, .star");
         // Variabel som anger om matchning hittats eller inte
         let matchFound = false;
         // Loop som går igenom varje element i allBodies
-        for (let i = 0; i < allBodies.length; i++) {
+        for (let i = 0; i < bodies.length; i++) {
           const element = allBodies[i];
           const planetData = data.bodies[i];
           setTimeout(() => {
@@ -103,3 +107,23 @@ function search() {
       });
   });
 }
+
+function findPlanetData(id, data) {
+  console.log("Data in findPlanetData: ", data); // Lägg till denna rad
+  for (let i = 0; i < data.bodies.length; i++) {
+    if (data.bodies[i].id === id) {
+      return data.bodies[i];
+    }
+  }
+  return null;
+}
+
+// Eventlyssnare för alla himlakroppar
+document.addEventListener("click", function () {
+  allBodies.forEach((element) => {
+    element.addEventListener("click", function () {
+      // Lägg till denna rad
+      const planetData = findPlanetData(element.id, globalData);
+    });
+  });
+});
