@@ -56,11 +56,6 @@ function search() {
         for (let i = 0; i < allBodies.length; i++) {
           const element = allBodies[i];
           const planetData = data.bodies[i];
-          console.log("Element:", element);
-          console.log("Planet data:", planetData);
-          // Lägger till en 'click'-händelsehanterare till både planeter och stjärnor
-          //element.addEventListener("click", () => {
-          // När klicket inträffar tas klasser bort
           setTimeout(() => {
             updatePlanetInfo(planetData, allBodies);
           }, 500);
@@ -76,7 +71,6 @@ function search() {
               body.classList.add("move-right");
             }
           });
-          //});
           // Kontrollerar om det finns en matchning mellan söksträng och namnet på objektet
           if (
             planetData &&
