@@ -56,26 +56,27 @@ function search() {
         for (let i = 0; i < allBodies.length; i++) {
           const element = allBodies[i];
           const planetData = data.bodies[i];
+          console.log("Element:", element);
+          console.log("Planet data:", planetData);
           // Lägger till en 'click'-händelsehanterare till både planeter och stjärnor
-          element.addEventListener("click", () => {
-            // När klicket inträffar tas klasser bort
-            setTimeout(() => {
-              updatePlanetInfo(planetData, allBodies);
-            }, 500);
-            element.classList.remove("zoom", "grow");
-            // Baserat på vilket element som klickas på flyttas elementen vid sidan om åt höger eller vänster baserat på deras index
-            const clickedIndex = Array.from(allBodies).indexOf(element);
-            console.log(allBodies);
-            allBodies.forEach((body, index) => {
-              // Tar bort klasser från varje 'body'
-              body.classList.remove("move-left", "move-right");
-              if (index < clickedIndex) {
-                body.classList.add("move-left");
-              } else if (index > clickedIndex) {
-                body.classList.add("move-right");
-              }
-            });
+          //element.addEventListener("click", () => {
+          // När klicket inträffar tas klasser bort
+          setTimeout(() => {
+            updatePlanetInfo(planetData, allBodies);
+          }, 500);
+          element.classList.remove("zoom", "grow");
+          // Baserat på vilket element som klickas på flyttas elementen vid sidan om åt höger eller vänster baserat på deras index
+          const clickedIndex = Array.from(allBodies).indexOf(element);
+          allBodies.forEach((body, index) => {
+            // Tar bort klasser från varje 'body'
+            body.classList.remove("move-left", "move-right");
+            if (index < clickedIndex) {
+              body.classList.add("move-left");
+            } else if (index > clickedIndex) {
+              body.classList.add("move-right");
+            }
           });
+          //});
           // Kontrollerar om det finns en matchning mellan söksträng och namnet på objektet
           if (
             planetData &&
@@ -89,6 +90,10 @@ function search() {
               element.classList.add("zoom-star"); //
             }
             matchFound = true;
+            // Anropar updatePlanetInfo här om du vill uppdatera texten direkt
+            updatePlanetInfo(planetData, allBodies);
+            // Avbryt loopen när en matchning har hittats
+            break;
           }
         }
         // Om ingen matchning görs dyker det upp ett felmeddelande
