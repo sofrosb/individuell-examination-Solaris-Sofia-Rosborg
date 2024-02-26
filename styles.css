@@ -251,7 +251,7 @@ button {
 
 .zoom {
   transform: scale(2);
-  transition: transform 0.5s ease-in-out scale 1s;
+  transition: transform 0.5s ease-in-out scale 0.5s;
   z-index: 1;
 }
 
@@ -259,11 +259,6 @@ button {
   transform: scale(1.1);
   transition: transform 0.5s ease-in-out;
   z-index: 1;
-}
-
-.grow {
-  width: 600px;
-  height: 600px;
 }
 
 #text-box {

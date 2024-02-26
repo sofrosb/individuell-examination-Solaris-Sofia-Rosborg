@@ -51,7 +51,6 @@ export function fetchData(searchInputValue) {
     })
       .then((response) => response.json())
       .catch((error) => {
-        // Hanterar fel här
         throw error;
       });
   });

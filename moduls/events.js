@@ -40,12 +40,12 @@ function search() {
       for (let i = 0; i < bodies.length; i++) {
         const element = allBodies[i];
         const planetData = data.bodies[i];
-        element.classList.remove("zoom", "grow");
+        element.classList.remove("zoom");
         // Kontrollerar om det finns en matchning mellan söksträng och namnet på objektet
         if (planetData && planetData.name.toLowerCase() === searchInputValue) {
           // Om matchning med klassen 'planet' hittas läggs klasserna 'zoom' och 'grow' till
           if (element.classList.contains("planet")) {
-            element.classList.add("zoom", "grow");
+            element.classList.add("zoom");
             // Om matchning med klassen 'star' hittas läggs klasse 'zoom-star' till
           } else if (element.classList.contains("star")) {
             element.classList.add("zoom-star"); //
@@ -111,6 +111,23 @@ function addClickHandlersToPlanets(allBodies) {
       if (globalData !== undefined) {
         const planetData = findPlanetData(i, globalData);
         updatePlanetInfo(planetData, allBodies);
+        if (element.classList.contains("planet")) {
+          element.classList.add("zoom");
+          // Om matchning med klassen 'star' hittas läggs klasse 'zoom-star' till
+        } else if (element.classList.contains("star")) {
+          element.classList.add("zoom-star"); //
+        }
+        // Baserat på vilket element som klickas på flyttas elementen vid sidan om åt höger eller vänster baserat på deras index
+        const clickedIndex = Array.from(allBodies).indexOf(element);
+        allBodies.forEach((body, index) => {
+          // Tar bort klasser från varje 'body'
+          body.classList.remove("move-left", "move-right");
+          if (index < clickedIndex) {
+            body.classList.add("move-left");
+          } else if (index > clickedIndex) {
+            body.classList.add("move-right");
+          }
+        });
       } else {
         console.log("globalData is undefined vid klick, väntar...");
       }

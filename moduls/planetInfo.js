@@ -27,9 +27,9 @@ export function updatePlanetInfo(planet, allBodies) {
     "<tr><td><h3>MAXTEMPERATUR</h3></td><td><h3>LÄGSTA TEMPERATUR</h3></td></tr>" +
     "<tr><td>" +
     planet.temp.day +
-    " celcius</td><td>" +
+    " celsius</td><td>" +
     planet.temp.night +
-    " celcius</td></tr>" +
+    " celsius</td></tr>" +
     "<tr><td colspan='2'><h3>MÅNAR:</h3> " +
     moons +
     "</td></tr>" +
@@ -46,6 +46,14 @@ export function updatePlanetInfo(planet, allBodies) {
       textBox.style.display = "none";
       headers.forEach((header) => {
         header.style.opacity = "1";
+      });
+      allBodies.forEach((element) => {
+        element.classList.remove(
+          "move-right",
+          "move-left",
+          "zoom",
+          "zoom-star"
+        );
       });
       event.stopPropagation();
     });
@@ -65,15 +73,11 @@ export function updatePlanetInfo(planet, allBodies) {
       // Återställ planeterna och solen så att de hamnar i sin ursprungliga position (klasser tas bort)
       allBodies.forEach((element) => {
         element.classList.remove(
-          "grow",
           "move-right",
           "move-left",
+          "zoom",
           "zoom-star"
         );
-        // Vänta 1 sekund innan zoom-klassen tas bort
-        setTimeout(() => {
-          element.classList.remove("zoom");
-        }, 1000);
         // Återställer headers
         headers.forEach((header) => {
           header.style.opacity = "1";
