@@ -1,4 +1,4 @@
-// Referenser till DOM-element som exporteras till övriga moduler för att kunna manipuleras
+// Modul för referenser till DOM-element som exporteras till övriga moduler för att kunna manipuleras
 export const searchBtn = document.querySelector("#searchBtn");
 export const searchInput = document.querySelector("#search");
 export const bodies = document.querySelectorAll(".body");

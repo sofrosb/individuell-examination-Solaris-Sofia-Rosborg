@@ -1,7 +1,7 @@
+// Modul som uppdaterar informationen om varje himlakropp i textrutan samt hanterar dess beteende
 // Importerar textruta
 import { textBox, headers } from "./dom.js";
 
-// Funktion som uppdaterar informationen om varje himlakropp i textrutan
 export function updatePlanetInfo(planet, allBodies) {
   // Kontrollera om planet är null eller undefined
   if (!planet) {

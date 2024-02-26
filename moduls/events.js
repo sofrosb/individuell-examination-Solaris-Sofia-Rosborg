@@ -1,3 +1,4 @@
+// Modul för händelsehantering
 import { fetchData } from "./api.js";
 import { updatePlanetInfo } from "./planetInfo.js";
 import { searchBtn, searchInput, errorDiv, bodies, allBodies } from "./dom.js";

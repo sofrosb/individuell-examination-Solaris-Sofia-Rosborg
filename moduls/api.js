@@ -1,3 +1,5 @@
+// Modul som skickar förfrågningar till API:et för att hämta en nyckel
+// och sedan använda nyckeln för att hämta data baserat på en sökterm
 // Importera
 import { errorDiv } from "./dom.js";
 

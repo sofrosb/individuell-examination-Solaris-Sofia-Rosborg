@@ -113,7 +113,7 @@ button {
   z-index: 1;
 }
 
-/* animation som får planeterna att rotera samt skalas upp */
+/* Animation som får planeterna att rotera samt skalas upp */
 @keyframes spinBig {
   from {
     transform: rotate(0deg) scale(1.5);
