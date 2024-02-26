@@ -1,4 +1,4 @@
-Individuell examination
-Sofia Rosborg
-Folkuniversitetet FE23
+Individuell examination <br>
+Sofia Rosborg <br>
+Folkuniversitetet FE23 <br>
 Kurs: JavaScript
