@@ -27,9 +27,9 @@ export function updatePlanetInfo(planet, allBodies) {
     "<tr><td><h3>MAXTEMPERATUR</h3></td><td><h3>LÄGSTA TEMPERATUR</h3></td></tr>" +
     "<tr><td>" +
     planet.temp.day +
-    " celsius</td><td>" +
+    " °C</td><td>" +
     planet.temp.night +
-    " celsius</td></tr>" +
+    " °C</td></tr>" +
     "<tr><td colspan='2'><h3>MÅNAR:</h3> " +
     moons +
     "</td></tr>" +
