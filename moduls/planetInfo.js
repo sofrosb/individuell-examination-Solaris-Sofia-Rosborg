@@ -5,7 +5,6 @@ import { textBox, headers } from "./dom.js";
 export function updatePlanetInfo(planet, allBodies) {
   // Kontrollera om planet är null eller undefined
   if (!planet) {
-    console.error("Planet object is null or undefined.");
     return;
   }
   // Textrutans synlighet, den är dold till en början
@@ -13,6 +12,7 @@ export function updatePlanetInfo(planet, allBodies) {
   // Skapar olika strängar med all information om planeten
   let planetName = "<h1>" + planet.name + "</h1>";
   let latinName = "<h2>" + planet.latinName + "</h2>";
+  let closeButton = "<button id='close-button'>X</button>";
   // Om planeten har månar skapas en sträng med alla månarnas namn, annars skriver den "Inga" (om planet.moons.length inte är större än 0)
   // Samt lägger till kommatecken mellan varje objekt i arrayen
   let moons = planet.moons.length > 0 ? planet.moons.join(", ") : "Inga";
@@ -39,10 +39,20 @@ export function updatePlanetInfo(planet, allBodies) {
   let contentBox =
     "<div class='content-box'>" + descriptionBox + infoBox + "</div>";
   // Informationen sätts som innehåll i textrutan
-  textBox.innerHTML = planetName + latinName + contentBox;
+  textBox.innerHTML = planetName + latinName + closeButton + contentBox;
+  setTimeout(function () {
+    let closeBtn = document.getElementById("close-button");
+    closeBtn.addEventListener("click", function (event) {
+      textBox.style.display = "none";
+      headers.forEach((header) => {
+        header.style.opacity = "1";
+      });
+      event.stopPropagation();
+    });
+  }, 0);
   // Gör rubrikerna i bakgrunden något transparenta
   headers.forEach((header) => {
-    header.style.opacity = "0.5";
+    header.style.opacity = "0.2";
   });
   document.addEventListener("click", function (event) {
     // Om klicket är utanför textrutan

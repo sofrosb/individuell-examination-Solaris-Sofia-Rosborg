@@ -1,4 +1,4 @@
-import { getApiKey, fetchData } from "./api.js";
+import { fetchData } from "./api.js";
 import { updatePlanetInfo } from "./planetInfo.js";
 import { searchBtn, searchInput, errorDiv, bodies, allBodies } from "./dom.js";
 
@@ -30,10 +30,8 @@ function search() {
 
   fetchData(searchInputValue)
     .then((data) => {
-      console.log("Setting globalData with: ", data);
       // Sparar data i den globala variabeln
       globalData = data;
-      console.log("globalData set: ", globalData);
       // Rensar tidigare felmeddelanden
       errorDiv.innerHTML = "";
       // Variabel som anger om matchning hittats eller inte
@@ -96,31 +94,41 @@ function search() {
     });
 }
 
+function clickPlanet(bodies, allBodies) {
+  fetchData().then((data) => {
+    globalData = data;
+    addClickHandlersToPlanets(allBodies);
+  });
+}
+
+// Anropa clickPlanet med alla dina bodies och allBodies
+clickPlanet(bodies, allBodies);
+
+// Eventlyssnare för alla himlakroppar
+function addClickHandlersToPlanets(allBodies) {
+  allBodies.forEach((element, i) => {
+    element.addEventListener("click", function () {
+      if (globalData !== undefined) {
+        const planetData = findPlanetData(i, globalData);
+        updatePlanetInfo(planetData, allBodies);
+      } else {
+        console.log("globalData is undefined vid klick, väntar...");
+      }
+    });
+  });
+}
+
 function findPlanetData(id, data) {
-  console.log("Data in findPlanetData: ", data);
+  console.log(
+    "All planet names in globalData: ",
+    data.bodies.map((body) => body.name)
+  );
   if (data && data.bodies) {
     for (let i = 0; i < data.bodies.length; i++) {
-      if (data.bodies[i].id === id) {
+      if (i === id) {
         return data.bodies[i];
       }
     }
   }
   return null;
 }
-
-// Eventlyssnare för alla himlakroppar
-allBodies.forEach((element) => {
-  element.addEventListener("click", function () {
-    console.log("globalData when clicked: ", globalData);
-    if (globalData !== undefined) {
-      const planetData = findPlanetData(element.id, globalData);
-      updatePlanetInfo(planetData, allBodies);
-    } else {
-      console.log("globalData is undefined vid klick, väntar...");
-      setTimeout(() => {
-        const planetData = findPlanetData(element.id, globalData);
-        updatePlanetInfo(planetData, allBodies);
-      }, 500); // Vänta 1 sekund
-    }
-  });
-});

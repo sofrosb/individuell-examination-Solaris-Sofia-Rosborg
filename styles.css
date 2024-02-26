@@ -94,13 +94,31 @@ button {
   width: 80%;
 }
 
+.star:hover {
+  transform: scale(1.1);
+}
+
+#jupiter.planet-big:hover,
+#saturn.planet-big:hover {
+  animation: spinBig 10s linear infinite;
+  z-index: 1;
+}
+
 .planet:hover {
   animation: spin 10s linear infinite;
   z-index: 1;
-  box-shadow: none;
 }
 
 /* animation som får planeterna att rotera samt skalas upp */
+@keyframes spinBig {
+  from {
+    transform: rotate(0deg) scale(1.5);
+  }
+  to {
+    transform: rotate(360deg) scale(1.5);
+  }
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg) scale(2);
@@ -281,6 +299,7 @@ button {
 .info-box {
   width: 100%;
 }
+
 .description-box {
   margin-top: 20px;
   width: 100%;
@@ -304,6 +323,19 @@ tr {
 h3 {
   font-family: "Secular One", sans-serif;
   font-size: 18px;
+}
+
+#close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  color: #fff;
+  background-color: transparent;
+  font-weight: 400;
 }
 
 /* Skapar "stjärnhimmel" i textboxen */
