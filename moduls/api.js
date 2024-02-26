@@ -32,7 +32,7 @@ export function getApiKey() {
         errorDiv.innerHTML = "";
         let errorMsg = document.createElement("p");
         errorMsg.textContent =
-          "Oj, något gick fel med API-anropet: " + error.message;
+          "Något gick fel med API-anropet: " + error.message;
         errorDiv.appendChild(errorMsg);
         throw error;
       })

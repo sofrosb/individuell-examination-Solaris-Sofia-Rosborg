@@ -4,11 +4,15 @@
   margin: 0;
 }
 
+html {
+  background: linear-gradient(45deg, #0c164d, #190b22);
+  background-attachment: fixed;
+}
+
 body {
   max-width: 1440px;
-  background: linear-gradient(45deg, #0c164d, #190b22);
   font-family: "Secular One", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .header-box {

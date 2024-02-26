@@ -77,7 +77,7 @@ function search() {
         if (errorDiv.textContent === "") {
           let errorMsg = document.createElement("p");
           errorMsg.textContent =
-            "Oj, det verkar som att planeten du söker inte finns!";
+            "Oops, det verkar som att planeten du söker inte finns!";
           errorDiv.appendChild(errorMsg);
         }
         return;
@@ -87,8 +87,7 @@ function search() {
       // Rensar tidigare felmeddelanden
       errorDiv.innerHTML = "";
       let errorMsg = document.createElement("p");
-      errorMsg.textContent =
-        "Oj, något gick fel med API-anropet: " + error.message;
+      errorMsg.textContent = "Något gick fel med API-anropet: " + error.message;
       errorDiv.appendChild(errorMsg);
       throw error;
     });
