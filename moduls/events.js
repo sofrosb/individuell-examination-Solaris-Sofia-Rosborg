@@ -119,10 +119,6 @@ function addClickHandlersToPlanets(allBodies) {
 }
 
 function findPlanetData(id, data) {
-  console.log(
-    "All planet names in globalData: ",
-    data.bodies.map((body) => body.name)
-  );
   if (data && data.bodies) {
     for (let i = 0; i < data.bodies.length; i++) {
       if (i === id) {
